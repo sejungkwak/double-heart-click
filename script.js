@@ -1,10 +1,10 @@
 const image = document.getElementById('img');
 const count = document.getElementById('count');
-const heart = document.getElementById('heart');
 
 let clickCount = 0;
-var clicks = 0;
-var timeout = 500;
+let clicks = 0;
+let timeout = 500;
+
 function showHeart(event) {
     clicks++;
 
@@ -12,12 +12,9 @@ function showHeart(event) {
         setTimeout(() => {
             if (clicks != 1) {
                 clickCount++;
-                const click = event.currentTarget;
-            
-                heart.style.left = `${event.clientX}px`
-                heart.style.top = `${event.clientY}px`
-            
-                image.appendChild(heart);
+
+                createHeart(event)
+
                 count.innerHTML = clickCount;
             }
             clicks = 0;
@@ -25,6 +22,24 @@ function showHeart(event) {
     }
 
     
+}
+
+const createHeart = (event) => {
+    const heart = document.createElement('i')
+    heart.classList.add('fas')
+    heart.classList.add('fa-heart')
+
+    const x = event.clientX - event.target.offsetLeft
+    const y = event.clientY - event.target.offsetTop
+
+    heart.style.left = `${x}px`
+    heart.style.top = `${y}px`
+
+    image.appendChild(heart);
+
+    setTimeout(() => 
+        heart.remove()
+    , 1000)
 }
 
 image.addEventListener('click', showHeart);

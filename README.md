@@ -18,6 +18,23 @@
 - clientX, clientY
 - add up click counts
 
+- On Safari, heart doesn't show when double clicking
+
 + Challenge from Brad Traversy & Florin Pop on Udemy '50 Projects in 50 Days'
 
 #### Takeaways from the instructor
+1. HTML
+- Font awesome to use heart image
+
+2. CSS
+- text-align: center instead of flex
+- image: relative & heart: absolute => need to change JS
+- inside keyframes translate value needed
+
+3. JavaScript
+- element.remove() after appendChild
+- click position 
+```
+const x = event.clientX - event.target.offsetLeft
+const y = event.clientY - event.target.offsetTop
+```

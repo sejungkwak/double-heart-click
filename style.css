@@ -23,6 +23,10 @@ body {
     margin-top: 5px;
 }
 
+.fa-heart {
+    color: red;
+}
+
 #img {
     width: 500px;
     height: 500px;
@@ -30,17 +34,18 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
+    position: relative;
 }
 
-#heart {
+#img .fa-heart {
     position: absolute;
-    transform: scale(0);
-    animation: grow 500ms linear;
+    transform: translate(-50%, -50%) scale(0);
+    animation: grow 700ms linear;
 }
 
 @keyframes grow {
-    100% {
-        transform: scale(5);
+    to {
+        transform: translate(-50%, -50%) scale(10);
         opacity: 0;
     }
 }
